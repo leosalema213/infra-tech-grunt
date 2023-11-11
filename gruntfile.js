@@ -1,4 +1,4 @@
-const { loadNpmTasks } = require("grunt");
+const { loadNpmTasks, registerTask } = require("grunt");
 
 module.exports = (grunt) => {
     grunt.initConfig({
@@ -9,7 +9,7 @@ module.exports = (grunt) => {
                     style:'compressed'
                 },
                 files:{
-                    'dist/styles/main.min.css':'src/styles/main.scss'
+                    'dev/styles/main.min.css':'src/styles/main.scss'
                 }
             },
             production: {
@@ -17,7 +17,7 @@ module.exports = (grunt) => {
                     style: 'compressed'
                 },
                 files:{
-                    'dist/styles/main.min.css':'src/styles/main.scss'
+                    'dist/styles/main.min.css':'src/styles/main.scss',
                 }
             }
         },
@@ -29,6 +29,10 @@ module.exports = (grunt) => {
             html:{
                 files:['src/index.html'],
                 tasks:['replace:dev']
+            },
+            uglify: {
+                files:['src/scripts/**/*.js'],
+                tasks:['uglify:dev']
             }
         },
         replace:{
@@ -37,19 +41,19 @@ module.exports = (grunt) => {
                     patterns:[
                         {
                             match: 'ENDERECO_DO_HOME_CSS',
-                            replacement:'./styles/main.css'
+                            replacement:'./styles/main.min.css'
                         },
                         {
                             match: 'ENDERECO_DO_MAIN_JS',
-                            replacement:'./styles/main.js'
+                            replacement:'./styles/main.min.js'
                         },
                         {
                             match: 'ENDERECO_DO_FORM_JS',
-                            replacement:'./styles/form.css'
+                            replacement:'./styles/form.min.css'
                         },
                         {
                             match: 'ENDERECO_DO_FORM_MB_JS',
-                            replacement:'./styles/formMobile.css'
+                            replacement:'./styles/formMobile.min.css'
                         }
                     ]
                 },
@@ -67,19 +71,19 @@ module.exports = (grunt) => {
                     patterns:[
                         {
                             match: 'ENDERECO_DO_HOME_CSS',
-                            replacement:'./styles/main.css'
+                            replacement:'./styles/main.min.css'
                         },
                         {
                             match: 'ENDERECO_DO_MAIN_JS',
-                            replacement:'./styles/main.js'
+                            replacement:'./styles/main.min.js'
                         },
                         {
                             match: 'ENDERECO_DO_FORM_JS',
-                            replacement:'./styles/form.css'
+                            replacement:'./styles/form.min.css'
                         },
                         {
                             match: 'ENDERECO_DO_FORM_MB_JS',
-                            replacement:'./styles/formMobile.css'
+                            replacement:'./styles/formMobile.min.css'
                         }
                     ]
                 },
@@ -102,27 +106,39 @@ module.exports = (grunt) => {
                 files:{
                     'prebuild/index.html' : 'src/index.html'
                 }
+            },
+            dev: {
+                options:{
+                    removeComments:true,
+                    collapseWhitespace:true
+                },
+                files:{
+                    'dev/index.html' : 'src/index.html'
+                }
             }
         },
         clean: [
             'prebuild'
         ],
         uglify: {
-            target: {
-                files: {
-                    'dist/scripts/main.min.js' : 'src/scripts/main.js'
-                }
+            build: {
+                src: 'src/scripts/*.js',
+                dest: 'dist/scripts/main.min.js'
+            },
+            dev: {
+                src: 'src/scripts/*.js',
+                dest: 'dev/scripts/main.min.js'
             }
         }
     })
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-replace');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    loadNpmTasks('grunt-contrib-sass');
+    loadNpmTasks('grunt-contrib-watch');
+    loadNpmTasks('grunt-replace');
+    loadNpmTasks('grunt-contrib-htmlmin');
+    loadNpmTasks('grunt-contrib-clean');
+    loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default',['watch']);
-    grunt.registerTask('build', ['sass:production', 'htmlmin:dist','replace:dist','clean','uglify'])
+    registerTask('default',['watch']);
+    registerTask('build', ['sass:production', 'htmlmin:dist','replace:dist','clean','uglify:build'])
 }
