@@ -61,10 +61,11 @@
       border-radius: 12px;
       font-size: 18px;
       cursor: pointer;
-    }
-    &.disabled {
-      cursor: auto;
-      background-color: variaveis.$grey;
+      
+      &.disabled {
+        cursor: auto;
+        background-color: variaveis.$grey;
+      }
     }
   }
 

@@ -23,6 +23,10 @@ module.exports = (grunt) => {
     },
     imagemin: {
       build: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{removeViewBox: false}]
+        },
         files: [{
             expand: true,
             cwd: 'src/assets',
@@ -31,6 +35,10 @@ module.exports = (grunt) => {
         }]
       },
       dev: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{removeViewBox: false}]
+        },
         files: [{
             expand: true,
             cwd: 'src/assets',
@@ -45,8 +53,8 @@ module.exports = (grunt) => {
         tasks: ['sass:development']
       },
       html: {
-        files: ['src/index.html'],
-        tasks: ['replace:dev']
+        files: ['src/*.html'],
+        tasks: ['replace:dev', 'htmlmin:dev']
       },
       uglify: {
         files: ['src/scripts/**/*.js'],
@@ -68,6 +76,22 @@ module.exports = (grunt) => {
             {
               match: 'ENDERECO_DO_HOME_CSS',
               replacement: './styles/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_FRONT_CSS',
+              replacement: './styles/pages/frontEnd/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_BACK_CSS',
+              replacement: './styles/pages/backEnd/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_FULL_CSS',
+              replacement: './styles/pages/fullStack/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_UXUI_CSS',
+              replacement: './styles/pages/ux-ui/main.min.css'
             },
             {
               match: 'ENDERECO_DO_MAIN_JS',
@@ -100,6 +124,22 @@ module.exports = (grunt) => {
               replacement: './styles/main.min.css'
             },
             {
+              match: 'ENDERECO_DO_FRONT_CSS',
+              replacement: './styles/pages/frontEnd/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_BACK_CSS',
+              replacement: './styles/pages/backEnd/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_FULL_CSS',
+              replacement: './styles/pages/fullStack/main.min.css'
+            },
+            {
+              match: 'ENDERECO_DO_UXUI_CSS',
+              replacement: './styles/pages/ux-ui/main.min.css'
+            },
+            {
               match: 'ENDERECO_DO_MAIN_JS',
               replacement: './scripts/main.min.js'
             },
@@ -117,7 +157,7 @@ module.exports = (grunt) => {
           {
             expand: true,
             flatten: true,
-            src: ['prebuild/index.html'],
+            src: ['prebuild/*.html'],
             dest: 'dist/'
           }
         ]
@@ -130,7 +170,11 @@ module.exports = (grunt) => {
           collapseWhitespace: true
         },
         files: {
-          'prebuild/index.html': 'src/index.html'
+          'prebuild/index.html': 'src/index.html',
+          'prebuild/frontEnd.html': 'src/frontEnd.html',
+          'prebuild/backEnd.html': 'src/backEnd.html',
+          'prebuild/fullStack.html': 'src/fullStack.html',
+          'prebuild/ux-ui.html': 'src/ux-ui.html',
         }
       },
       dev: {
@@ -139,7 +183,11 @@ module.exports = (grunt) => {
           collapseWhitespace: true
         },
         files: {
-          'dev/index.html': 'src/index.html'
+          'dev/index.html': 'src/index.html',
+          'dev/frontEnd.html': 'src/frontEnd.html',
+          'dev/backEnd.html': 'src/backEnd.html',
+          'dev/fullStack.html': 'src/fullStack.html',
+          'dev/ux-ui.html': 'src/ux-ui.html',
         }
       }
     },

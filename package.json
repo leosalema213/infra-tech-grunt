@@ -22,6 +22,7 @@
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-replace": "^2.0.2",
+    "imagemin-mozjpeg": "^10.0.0",
     "prettier": "3.0.3",
     "sass": "^1.69.5"
   }

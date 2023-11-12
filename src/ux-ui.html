@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infratech -  UX/UI Designer</title>
+    <link rel="stylesheet" href="uxUiCSS" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="./scripts/formulario.js" defer></script>
+    <script src="./scripts/formularioMobile.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header id="hero">
+      <div class="hero__text container">
+        <p>Garanta uma carreira de sucesso como</p>
+        <h1>
+          UX/UI <br />
+          Designer
+        </h1>
+        <ul>
+          <li>Para você que não conhece nada de programação</li>
+          <li>Mentores com mais de 10 anos de mercado</li>
+          <li>Garanta seu emprego ou devolvemos o seu dinhero</li>
+        </ul>
+      </div>
+      <div class="background__animation">
+        <img src="./assets/animations/animationUxUi.svg" alt="">
+      </div>
+      <div class="registration__form" class="container">
+        <h3>Garanta ja sua vaga</h3>
+        <form class="border--top">
+          <div class="input__group">
+            <label for="name">Nome</label>
+            <input id="name" type="text" required />
+          </div>
+          <div class="input__group">
+            <label for="cel">Celular</label>
+            <input id="cel" type="text" placeholder="(99) 99999-9999" required />
+            <span> O numero de celular digitado esta incorreto </span>
+          </div>
+          <div class="input__group">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+          </div>
+          <div class="input__group">
+            <label for="choice__course">Curso de interesse</label>
+            <select name="curso escolhido" id="choice__course" required>
+              <option selected value="Desenvolvedor Front End">
+                UX/UI Designer
+              </option>
+            </select>
+          </div>
+          <button id="btn-submit" type="submit">Enviar</button>
+        </form>
+      </div>
+      <img class="setaBaixo" src="./assets/icons/icon-dupla-seta.png" alt="teste">
+    </header>
+    <section id="infos">
+      <div class="infos__container">
+        <div>
+          <h3>Metodos de ensino</h3>
+          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae necessitatibus neque quisquam pariatur? Asperiores debitis blanditiis, vitae quia ut quaerat aliquam iste voluptatibus eaque amet minima rem possimus impedit!</p>
+        </div>
+        <div>
+          <h3>Acesso vitalício</h3>
+          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae necessitatibus neque quisquam pariatur? Asperiores debitis blanditiis, vitae quia ut quaerat aliquam iste voluptatibus eaque amet minima rem possimus impedit!</p>
+        </div>
+        <div>
+          <h3>Centro de carreiras</h3>
+          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae necessitatibus neque quisquam pariatur? Asperiores debitis blanditiis, vitae quia ut quaerat aliquam iste voluptatibus eaque amet minima rem possimus impedit!</p>
+        </div>
+        <div>
+          <h3>10 projetos práticos</h3>
+          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae necessitatibus neque quisquam pariatur? Asperiores debitis blanditiis, vitae quia ut quaerat aliquam iste voluptatibus eaque amet minima rem possimus impedit!</p>
+        </div>
+      </div>
+    </section>
+    <section id="accordion">
+      <h2>Oque você ira aprender</h2>
+            <ul class="accordion__container">
+              <li class="accordion__item scroll">
+                <div class="accordion__header">
+                  <button type="button" class="button__accordion">
+                    Necessidades do usuário
+                    <img class="open__accordion" src="./assets/icons/icon-seta.png" alt="close">
+                    <img class="close__accordion" src="./assets/icons/icons-excluir.png" alt="close">
+                  </button>
+                </div>
+                <div class="accordion__text">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium fuga molestiae consequuntur atque. Nisi debitis modi mollitia nostrum tempore illo consectetur architecto ducimus numquam? Animi iste aliquam temporibus sapiente asperiores.
+                  </p>
+                </div>
+              </li>
+              <li class="accordion__item scroll">
+                <div class="accordion__header">
+                  <button type="button" class="button__accordion">
+                    Prototipagem e microinterações
+                    <img class="open__accordion" src="./assets/icons/icon-seta.png" alt="close">
+                    <img class="close__accordion " src="./assets/icons/icons-excluir.png" alt="close">
+                  </button>
+                </div>
+                <div class="accordion__text">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium fuga molestiae consequuntur atque. Nisi debitis modi mollitia nostrum tempore illo consectetur architecto ducimus numquam? Animi iste aliquam temporibus sapiente asperiores.
+                  </p>
+                </div>
+              </li>
+              <li class="accordion__item scroll">
+                <div class="accordion__header">
+                  <button type="button" class="button__accordion">
+                    Usabilidade e design responsivo
+                    <img class="open__accordion" src="./assets/icons/icon-seta.png" alt="close">
+                  <img class="close__accordion" src="./assets/icons/icons-excluir.png" alt="close">
+                  </button>
+                </div>
+                <div class="accordion__text is-open">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium fuga molestiae consequuntur atque. Nisi debitis modi mollitia nostrum tempore illo consectetur architecto ducimus numquam? Animi iste aliquam temporibus sapiente asperiores.
+                  </p>
+                </div>
+              </li>
+              <li class="accordion__item scroll">
+                <div class="accordion__header">
+                  <button type="button" class="button__accordion">
+                    Pixel Perfect Design
+                    <img class="open__accordion" src="./assets/icons/icon-seta.png" alt="close">
+                  <img class="close__accordion" src="./assets/icons/icons-excluir.png" alt="close">
+                  </button>
+                </div>
+                <div class="accordion__text is-open">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium fuga molestiae consequuntur atque. Nisi debitis modi mollitia nostrum tempore illo consectetur architecto ducimus numquam? Animi iste aliquam temporibus sapiente asperiores.
+                  </p>
+                </div>
+              </li>
+            </ul>
+    </section>
+    <section id="form__mobile">
+      <div class="registration__form" class="container">
+        <h2>Inscreva-se agora</h2>
+        <h4>Venha fazer parte do nosso time !</h4>
+        <form  class="border--top">
+          <div class="input__group">
+            <label for="name">Nome</label>
+            <input id="name" type="text" required />
+          </div>
+          <div class="input__group">
+            <label for="cel">Celular</label>
+            <input id="cel" type="text" placeholder="(99) 99999-9999" required />
+            <span> O numero de celular digitado esta incorreto </span>
+          </div>
+          <div class="input__group">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+          </div>
+          <div class="input__group">
+            <label for="choice__course">Curso de interesse</label>
+            <select name="curso escolhido" id="choice__course" required>
+              <option selected value="Desenvolvedor Front End">
+                UX/UI Designer
+              </option>
+            </select>
+          </div>
+          <button id="btn-submit" type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+      <ul class="footer__links">
+          <li>
+              <a href="./index.html">Voltar para a home</a>
+          </li>
+      </ul>
+      &copy; Todos os direitos reservados
+  </footer>
+  </body>
+</html>
