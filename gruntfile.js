@@ -21,6 +21,24 @@ module.exports = (grunt) => {
         }
       }
     },
+    imagemin: {
+      build: {
+        files: [{
+            expand: true,
+            cwd: 'src/assets',
+            src: ['**/*.{png,jpg,svg}'],
+            dest: 'dist/assets/'
+        }]
+      },
+      dev: {
+        files: [{
+            expand: true,
+            cwd: 'src/assets',
+            src: ['**/*.{png,jpg,svg}'],
+            dest: 'dev/assets/'
+        }]
+      }
+    },
     watch: {
       sass: {
         files: ['src/styles/**/*.scss'],
@@ -37,6 +55,10 @@ module.exports = (grunt) => {
       replace: {
         files: ['src/index.html'],
         tasks: ['replace:dev']
+      },
+      imagemin: {
+        files: ['src/assets/**/*'],
+        tasks: ['imagemin:dev']
       }
     },
     replace: {
@@ -140,6 +162,7 @@ module.exports = (grunt) => {
   loadNpmTasks('grunt-contrib-htmlmin')
   loadNpmTasks('grunt-contrib-clean')
   loadNpmTasks('grunt-contrib-uglify')
+  loadNpmTasks('grunt-contrib-imagemin')
 
   registerTask('default', ['watch'])
   registerTask('build', [
@@ -147,6 +170,7 @@ module.exports = (grunt) => {
     'htmlmin:dist',
     'replace:dist',
     'clean',
-    'uglify:build'
+    'uglify:build',
+    'imagemin:build'
   ])
 }
