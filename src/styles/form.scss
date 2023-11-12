@@ -1,0 +1,81 @@
+@use 'config/variaveis';
+
+#registration__form {
+  max-width: 400px;
+  margin-bottom: 200px;
+
+  form {
+    padding-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .input__group {
+      width: 100%;
+      margin-bottom: 16px;
+      font-size: 18px;
+
+      span {
+        display: none;
+
+        &.is-visible {
+          display: block;
+          color: variaveis.$red;
+          font-size: 14px;
+        }
+      }
+      .border--error {
+        border: 2px solid red;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input,
+      #choice__course{
+        width: 100%;
+        padding: 6px 8px;
+        border-radius: 12px;
+        font-size: 18px;
+        border: 1px solid variaveis.$colorPrimary;
+        outline: 1px solid transparent;
+
+        &:focus {
+          outline: 1px solid variaveis.$colorPrimary;
+        }
+      }
+
+    }
+    button{
+      margin-top: 8px;
+      width: 100%;
+      padding: 6px 8px;
+      border: none;
+      color: variaveis.$white;
+      font-weight: bold;
+      background-color: variaveis.$colorPrimary;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    &.disabled {
+      cursor: auto;
+      background-color: variaveis.$grey;
+    }
+  }
+
+  @media screen and (max-width: 480px)  {
+        max-width: 100%;
+        padding: 20px;
+  }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+        max-width: 600px;
+        width: 100%;
+        padding: 80px;
+  }
+}
+

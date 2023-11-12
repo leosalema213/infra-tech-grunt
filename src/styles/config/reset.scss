@@ -1,0 +1,34 @@
+@use 'variaveis';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: variaveis.$fontPrincipal;
+  list-style: none;
+  text-decoration: none;
+
+}
+  /* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: variaveis.$colorPrimary transparent;
+  }
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  }
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+  }
+
+*::-webkit-scrollbar-thumb {
+  background-color: variaveis.$grey2;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  }
+

@@ -1,0 +1,33 @@
+@use 'config/variaveis';
+
+
+footer {
+  background-color: #421EAA;
+  color: #fff;
+  padding: 60px;
+  text-align: center;
+
+  a {
+    color: #ccc;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .footer__links {
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .footer__links {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+}
+}
+
