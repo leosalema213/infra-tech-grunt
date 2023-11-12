@@ -9,7 +9,11 @@ module.exports = (grunt) => {
           style: 'compressed'
         },
         files: {
-          'dev/styles/main.min.css': 'src/styles/main.scss'
+          'dev/styles/main.min.css': 'src/styles/main.scss',
+          'dev/styles/pages/frontEnd/main.min.css': 'src/styles/pages/frontEnd/main.scss',
+          'dev/styles/pages/backEnd/main.min.css': 'src/styles/pages/backEnd/main.scss',
+          'dev/styles/pages/fullStack/main.min.css': 'src/styles/pages/fullStack/main.scss',
+          'dev/styles/pages/uxUi/main.min.css': 'src/styles/pages/uxUi/main.scss'
         }
       },
       production: {
@@ -17,7 +21,11 @@ module.exports = (grunt) => {
           style: 'compressed'
         },
         files: {
-          'dist/styles/main.min.css': 'src/styles/main.scss'
+          'dist/styles/main.min.css': 'src/styles/main.scss',
+          'dist/styles/pages/frontEnd/main.min.css': 'src/styles/pages/frontEnd/main.scss',
+          'dist/styles/pages/backEnd/main.min.css': 'src/styles/pages/backEnd/main.scss',
+          'dist/styles/pages/fullStack/main.min.css': 'src/styles/pages/fullStack/main.scss',
+          'dist/styles/pages/uxUi/main.min.css': 'src/styles/pages/uxUi/main.scss'
         }
       }
     },
@@ -52,17 +60,17 @@ module.exports = (grunt) => {
         files: ['src/styles/**/*.scss'],
         tasks: ['sass:development']
       },
-      html: {
-        files: ['src/*.html'],
-        tasks: ['replace:dev', 'htmlmin:dev']
-      },
       uglify: {
         files: ['src/scripts/**/*.js'],
         tasks: ['uglify:dev']
       },
       replace: {
-        files: ['src/index.html'],
+        files: ['src/*.html'],
         tasks: ['replace:dev']
+      },
+      html: {
+        files: ['src/*.html'],
+        tasks: ['htmlmin:dev']
       },
       imagemin: {
         files: ['src/assets/**/*'],
@@ -91,19 +99,11 @@ module.exports = (grunt) => {
             },
             {
               match: 'ENDERECO_DO_UXUI_CSS',
-              replacement: './styles/pages/ux-ui/main.min.css'
+              replacement: './styles/pages/uxUi/main.min.css'
             },
             {
               match: 'ENDERECO_DO_MAIN_JS',
               replacement: './scripts/main.min.js'
-            },
-            {
-              match: 'ENDERECO_DO_FORM_JS',
-              replacement: './scripts/form.min.css'
-            },
-            {
-              match: 'ENDERECO_DO_FORM_MB_JS',
-              replacement: './scripts/formMobile.min.css'
             }
           ]
         },
@@ -111,7 +111,7 @@ module.exports = (grunt) => {
           {
             expand: true,
             flatten: true,
-            src: ['src/index.html'],
+            src: ['src/*.html'],
             dest: 'dev/'
           }
         ]
@@ -137,19 +137,11 @@ module.exports = (grunt) => {
             },
             {
               match: 'ENDERECO_DO_UXUI_CSS',
-              replacement: './styles/pages/ux-ui/main.min.css'
+              replacement: './styles/pages/uxUi/main.min.css'
             },
             {
               match: 'ENDERECO_DO_MAIN_JS',
               replacement: './scripts/main.min.js'
-            },
-            {
-              match: 'ENDERECO_DO_FORM_JS',
-              replacement: './scripts/form.min.css'
-            },
-            {
-              match: 'ENDERECO_DO_FORM_MB_JS',
-              replacement: './scripts/formMobile.min.css'
             }
           ]
         },
@@ -174,7 +166,7 @@ module.exports = (grunt) => {
           'prebuild/frontEnd.html': 'src/frontEnd.html',
           'prebuild/backEnd.html': 'src/backEnd.html',
           'prebuild/fullStack.html': 'src/fullStack.html',
-          'prebuild/ux-ui.html': 'src/ux-ui.html',
+          'prebuild/uxUi.html': 'src/uxUi.html',
         }
       },
       dev: {
@@ -187,7 +179,7 @@ module.exports = (grunt) => {
           'dev/frontEnd.html': 'src/frontEnd.html',
           'dev/backEnd.html': 'src/backEnd.html',
           'dev/fullStack.html': 'src/fullStack.html',
-          'dev/ux-ui.html': 'src/ux-ui.html',
+          'dev/uxUi.html': 'src/uxUi.html',
         }
       }
     },

@@ -1,0 +1,22 @@
+@use '../../../styles/config/variaveis.scss';
+
+footer {
+  background-color: variaveis.$uxColorPurple;
+  color: variaveis.$white;
+  padding: 60px;
+  text-align: center;
+  a {
+    color: variaveis.$grey;
+
+    &:hover {
+      color: variaveis.$white;
+    }
+  }
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 32px;
+  margin-bottom: 32px;
+}

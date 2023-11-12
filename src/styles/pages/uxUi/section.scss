@@ -1,0 +1,228 @@
+@use 'header';
+@use '../../../styles/config/variaveis.scss';
+
+#infos {
+  background-color: variaveis.$uxColorPurple;
+
+  .infos__container {
+    padding: 80px 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 32px;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    p {
+      margin-top: 16px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
+#accordion {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  h2 {
+    text-align: center;
+    color: variaveis.$uxColorPurple;
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+
+  .accordion__container{
+    .accordion__item {
+      margin-bottom: 16px;
+
+      .button__accordion {
+        width: 100%;
+        color: variaveis.$uxColorPurple;
+        font-weight: bold;
+        text-align: start;
+        padding: 12px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        img {
+          width: 24px;
+          cursor: pointer;
+        }
+        .accordion__text.is--open {
+          display: block;
+        }
+        .close__accordion {
+          display: none;
+        }
+      }
+      .accordion__text {
+        display: none;
+        font-size: 18px;
+        padding: 16px;
+        line-height: 26px;
+        border: 1px solid variaveis.$black;
+
+        &.is--open {
+          display: block;
+        }
+      }
+    }
+  }
+  .accordion__container :nth-child(2) {
+    transition-delay: 300ms;
+  }
+  .accordion__container :nth-child(3) {
+    transition-delay: 500ms;
+  }
+  .accordion__container :nth-child(4) {
+    transition-delay: 700ms;
+  }
+  .accordion__container :nth-child(5) {
+    transition-delay: 900ms;
+  }
+}
+#form__mobile {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 80px 5.6vw;
+  border-top: 2px solid variaveis.$uxColorPurple;
+  margin-bottom: 120px;
+
+  h2 {
+    margin-bottom: 12px;
+  }
+  .registration__form {
+    display: block;
+    color: variaveis.$white;
+    width: 100%;
+    padding: 24px 24px;
+    background-color: variaveis.$uxColorPurple;
+
+    .border--top {
+      border-color: variaveis.$uxColorRose2;
+    }
+    form {
+      input:focus {
+        outline: 2px solid variaveis.$uxColorDestaqued;
+      }
+      #cel {
+        border-color: transparent;
+      }
+      button {
+        background-color: variaveis.$uxColorRose1;
+        &:hover {
+          background-color: variaveis.$uxColorRose2;
+        }
+      }
+      .disabled,
+      .disabled:hover {
+        cursor: auto;
+        background-color: #ccc;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #infos {
+    .infos__container {
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+      max-width: 100%;
+      p {
+        margin-top: 12px;
+        font-size: 16px;
+      }
+      div {
+        padding: 12px;
+        box-shadow: 0px 0px 8px variaveis.$boxShadow;
+      }
+    }
+  }
+  #accordion {
+    .button__accordion {
+      font-size: 18px;
+    }
+  }
+  #form__mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #infos {
+    .infos__container {
+      padding: 40px 5.6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 32px;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto;
+      color: variaveis.$white;
+
+      p {
+        margin-top: 12px;
+        font-size: 16px;
+      }
+
+      div {
+        padding: 12px;
+        box-shadow: 0px 0px 8px variaveis.$boxShadow;
+      }
+    }
+  }
+  #accordion {
+    .button__accordion {
+      font-size: 18px;
+    }
+  }
+
+  #formMobile {
+    display: flex;
+  }
+  #formMobile .registration__form {
+    display: block;
+    width: 400px;
+  }
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  #form__mobile {
+    display: flex;
+    justify-content: center;
+
+    .registration__form {
+      width: 70%;
+    }
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #infos{
+    .infos__container {
+      padding: 80px 2vw;
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      padding: 40px 20px;
+      div {
+        padding: 12px;
+        box-shadow: 0px 0px 8px variaveis.$boxShadow;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  #infos {
+    padding: 20px;
+  }
+}
