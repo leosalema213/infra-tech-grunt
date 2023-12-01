@@ -1,4 +1,4 @@
-https://infra-tech-grunt.vercel.app/
+
 
 # About project
 
@@ -19,3 +19,5 @@ to create the production folder
 
 ### `npm run grunt` 
 to create the development folder
+
+Deploy: https://infra-tech-grunt.vercel.app/
