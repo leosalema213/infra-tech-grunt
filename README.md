@@ -1,5 +1,3 @@
-
-
 # About project
 
 project developed to improve my skills in creating landing pages.
